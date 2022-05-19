@@ -214,4 +214,6 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    LaravelFrontendPresets\MaterialPreset\MaterialPresetServiceProvider::class
+
 ];
