@@ -7,10 +7,12 @@
     "require": {
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
+        "laravel-frontend-presets/material-dashboard": "^1.1",
         "laravel/framework": "^9.11",
         "laravel/jetstream": "^2.8",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "laravel/ui": "^3.4",
         "livewire/livewire": "^2.5"
     },
     "require-dev": {
@@ -25,12 +27,14 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "LaravelFrontendPresets\\MaterialPreset\\": "presets/material/src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "LaravelFrontendPresets\\MaterialPreset\\": "presets/material/src"
         }
     },
     "scripts": {
