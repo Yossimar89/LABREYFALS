@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Resultado;
+
 class HomeController extends Controller
 {
     /**
@@ -23,4 +25,5 @@ class HomeController extends Controller
     {
         return view('dashboard');
     }
+
 }
