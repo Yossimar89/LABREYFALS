@@ -53,15 +53,14 @@
   <hr>
 
   <div class="row text-center" style="background-color: #f7f8f8">
-
     @foreach($resultados as $resultado)
         <div class="col-md-3 mt-2 mb-2"> 
           <label for="nombre" id="nombre">{{ $resultado->nombre }}</label>
           <br>
             {{
             $miQr = QrCode::
-                  // format('png')
-                  size(200)  //defino el tamaño
+                  format('svg')->
+                  size(100)  //defino el tamaño
                   ->margin(1)  //defino el margen
                   ->generate($resultado) /** genero el codigo qr **/
             }}
