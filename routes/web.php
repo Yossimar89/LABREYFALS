@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('resultados/index', 'App\Http\Controllers\ResultadoController@index2')->name('index');
+
+
 Route::get('/', function () {
     return view('auth.login');
 });
