@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ __('Porta Rey Fals') }}</title>
+    <title>{{ __('Portal Rey Fals') }}</title>
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material') }}/img/apple-icon.png">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -15,7 +15,7 @@
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="img/favicon.png"/>
+    <link rel="icon" href="{{ asset('img') }}/favicon.png"/>
     <link rel="stylesheet" href="css/login.css"/>
     </head>
     <body class="{{ $class ?? '' }}">
@@ -71,7 +71,7 @@
                 </a>
               </li>
               <li class="button-container">
-                <a href="https://www.creative-tim.com/product/material-dashboard-laravel" target="_blank" class="btn btn-primary btn-block">Free Download</a>
+                <a href="https://www.reyfals.com.co" target="_blank" class="btn btn-primary btn-block">Reyfals</a>
               </li>
               <!-- <li class="header-title">Want more components?</li>
                   <li class="button-container">
@@ -148,6 +148,7 @@
         <script src="{{ asset('material') }}/demo/demo.js"></script>
         <script src="{{ asset('material') }}/js/settings.js"></script>
         @stack('js')
+        @include('sweetalert::alert')
         <!-- modal login -->
         <script src="js/modal.js"></script>
     </body>
