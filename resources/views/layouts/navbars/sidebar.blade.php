@@ -5,8 +5,8 @@
       Tip 2: you can also add an image using data-image tag
   -->
   <div class="logo">
-    <a href="https://creative-tim.com/" class="simple-text logo-normal">
-      <img src="img/logo.png" width="200px" alt="">
+    <a href="https://reyfals.com.co/" class="simple-text logo-normal">
+      <img src="{{ asset('img') }}/logo.png" width="200px" alt=""/>
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -44,6 +44,39 @@
         </div>
       </li>
       <!-- Usuario -->
+
+      <!-- Paciente -->
+      <li class="nav-item {{ ($activePage == 'paciente' || $activePage == 'create') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#paciente" aria-expanded="true">
+          <i class="fa fa-user"></i>
+          <p>{{ __('Pacientes') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="paciente">
+          <ul class="nav">
+            <li class="nav-item{{ $activePage == 'paciente' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('paciente.create') }}">
+                <span class="sidebar-mini"> CP </span>
+                <span class="sidebar-normal">{{ __('Crear Paciente') }} </span>
+              </a>
+            </li>
+            <li class="nav-item{{ $activePage == 'paciente.index' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('paciente.index') }}">
+                <span class="sidebar-mini"> P </span>
+                <span class="sidebar-normal">{{ __(' Listar Pacientes') }} </span>
+              </a>
+            </li>
+            <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('user.index') }}">
+                <span class="sidebar-mini"> EP </span>
+                <span class="sidebar-normal"> {{ __('Editar Paciente') }} </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <!-- Paciente -->
 
       <!-- Domicilios -->
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">

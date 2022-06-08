@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use http\Controllers\PacienteController;
+use http\Controllers\EmpresaController;
+use http\Controllers\SexoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('resultados/index', 'App\Http\Controllers\ResultadoController@index2')->name('index');
+Route::get('resultados/index', 
+'App\Http\Controllers\ResultadoController@index2')
+->name('index')->middleware('auth');
+
+Route::resource('paciente', 'App\Http\Controllers\PacienteController')->middleware('auth');
+
 
 
 Route::get('/', function () {
