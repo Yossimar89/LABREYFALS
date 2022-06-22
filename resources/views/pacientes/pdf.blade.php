@@ -1,0 +1,1 @@
+@include('pacientes.pdf2')

@@ -55,14 +55,14 @@
         </a>
         <div class="collapse" id="paciente">
           <ul class="nav">
-            <li class="nav-item{{ $activePage == 'paciente' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('paciente.create') }}">
+            <li class="nav-item{{ $activePage == 'pacientes.create' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('pacientes.create') }}">
                 <span class="sidebar-mini"> CP </span>
                 <span class="sidebar-normal">{{ __('Crear Paciente') }} </span>
               </a>
             </li>
-            <li class="nav-item{{ $activePage == 'paciente.index' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('paciente.index') }}">
+            <li class="nav-item{{ $activePage == 'pacientes/index' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('pacientes.index') }}">
                 <span class="sidebar-mini"> P </span>
                 <span class="sidebar-normal">{{ __(' Listar Pacientes') }} </span>
               </a>
@@ -170,9 +170,9 @@
         <div class="collapse" id="resultados">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('profile.edit') }}">
+              <a class="nav-link" href="{{ route('resultados.index') }}">
                 <span class="sidebar-mini"> UP </span>
-                <span class="sidebar-normal">{{ __('User profile') }} </span>
+                <span class="sidebar-normal">{{ __('Entrega de Resultados') }} </span>
               </a>
             </li>
             <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">

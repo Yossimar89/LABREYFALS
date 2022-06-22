@@ -32,19 +32,7 @@
                     <td>{{$paciente->correo}}</td>
                     <td>{{$paciente->empresa_nombre}}</td>
                     <td>
-                        <form action="{{url('/paciente/'.$paciente->id)}}" method="post" class="form" id="formEdit">
-                            @csrf
-                            {{method_field('EDIT')}}
-                            <div class="form-group has-feedback">
-                                <input type="submit" class="btn btn-warning btn-sm" value="Editar">
-                            </div>
-                        </form> 
-                        <form action="{{url('/paciente/'.$paciente->id)}}" method="post" id="formDelete">
-                            @csrf
-                            {{method_field('DELETE')}}
-                            <input type="submit" onclick="swal confirm('Quieres borrar el Registro?')" class="btn btn-danger btn-sm" value="Borrar">
-                        </form>
-
+                        <a href="{{url('pacientes/pdf')}}" class="btn btn-success">PDF</a>
                     </td>
                 </tr>
                 @endforeach

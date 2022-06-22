@@ -20,6 +20,11 @@ class Paciente extends Model
     public function tipoDocumento(){
         return $this->belongsTo('App\Models\Documento', 'tipo_documento_id', 'id');
     }
+
+    public function resultados(){
+        return $this->hasMany('App\Models\Resultado', 'resultado_id', 'id');
+    }
+
     protected $fillable =['nombre1',
                           'nombre2',
                           'apellido1',
