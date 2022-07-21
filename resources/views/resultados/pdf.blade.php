@@ -69,7 +69,7 @@
     </div>
 
     <div class="empresa2">
-        <span style="font-style:normal;font-weight:normal;font-size:9pt;font-family:Times;color:#000000">CENTRO HOSPITALARIO</span>
+        <span class="empresaNombre">CENTRO HOSPITALARIO</span>
         <span style="font-style:normal;font-weight:normal;font-size:9pt;font-family:Times;color:#000000">REGIONAL SANTA</span>
         <span style="font-style:normal;font-weight:normal;font-size:9pt;font-family:Times;color:#000000">MONICA</span>
     </div>
@@ -741,6 +741,14 @@
             left:4.01in;
             width:1.61in;
             line-height:0.14in;
+        }
+
+        .empresaNombre {
+            font-style:normal;
+            font-weight:normal;
+            font-size:9pt;
+            font-family:Times;
+            color:#000000"
         }
 
         .sucursal {

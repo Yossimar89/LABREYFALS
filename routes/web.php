@@ -16,14 +16,18 @@ use http\Controllers\SexoController;
 |
 */
 
-//pacientes index
-Route::get('pacientes', 
-'App\Http\Controllers\PacienteController@index')
-->name('index')->middleware('auth');
+//pacientes pdf
+Route::get('pacientes/pdf', 
+'App\Http\Controllers\PacienteController@pdf')
+->name('pdf')->middleware('auth');
 
 Route::get('resultados/pdf', 
 'App\Http\Controllers\ResultadoController@pdf')
 ->name('index')->middleware('auth');
+
+Route::get('resultados/qr', 
+'App\Http\Controllers\ResultadoController@qr')
+->name('qr')->middleware('auth');
 
 Route::resource('pacientes', 'App\Http\Controllers\PacienteController')->middleware('auth');
 Route::resource('resultados', 'App\Http\Controllers\ResultadoController')->middleware('auth');

@@ -15,6 +15,12 @@ class ResultadoController extends Controller
         return view('resultados/index', compact('resultados','resultados'));
     }
 
+    public function qr()
+    {    $resultados = Resultado::all();
+        return view('resultados/qr', compact('resultados','resultados'));
+    }
+    
+
     public function show(Resultado $resultado)
     {
         //

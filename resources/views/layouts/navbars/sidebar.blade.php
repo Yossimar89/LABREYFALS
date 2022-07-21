@@ -176,9 +176,9 @@
               </a>
             </li>
             <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('user.index') }}">
-                <span class="sidebar-mini"> UM </span>
-                <span class="sidebar-normal"> {{ __('User Management') }} </span>
+              <a class="nav-link" href="{{ route('qr') }}">
+                <span class="sidebar-mini"> QR </span>
+                <span class="sidebar-normal"> {{ __('Prueba QR') }} </span>
               </a>
             </li>
           </ul>
