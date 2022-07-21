@@ -9,6 +9,7 @@ use App\Models\TipoDocumento;
 use App\Http\Requests\StorePacienteRequest;
 use App\Http\Requests\UpdatePacienteRequest;
 use RealRashid\SweetAlert\Facades\Alert;
+use Barryvdh\DomPDF\Facade\Pdf as PDF; 
 
 class PacienteController extends Controller
 {
@@ -24,7 +25,7 @@ class PacienteController extends Controller
     public function index()
     {
         // $pacientes['pacientes']=Paciente::all();
-        $pacientes['pacientes'] = Paciente::join('tipo_documentos', 'tipo_documentos.id', '=', 'pacientes.tipo_documento_id')
+        $pacientes = Paciente::join('tipo_documentos', 'tipo_documentos.id', '=', 'pacientes.tipo_documento_id')
         ->join('sexos', 'sexos.id', 'pacientes.sexo_id')
         ->join('empresas', 'empresas.id', 'pacientes.empresa_id')
         ->select('sexos.nombre as sexo_nombre', 'tipo_documentos.descripcion as tipo_documento_descripcion', 
@@ -33,7 +34,7 @@ class PacienteController extends Controller
         // return response()->json([
         //     'pacientes'=>$pacientes
         // ]);
-        return view('paciente.index', $pacientes);
+        return view('pacientes/index', compact('pacientes'));
     }
 
     /**
@@ -46,7 +47,7 @@ class PacienteController extends Controller
         $sexos=Sexo::all();
         $tipoDocumentos=TipoDocumento::all();
         $empresas=Empresa::all();
-        return view('paciente.create', compact('sexos', 'tipoDocumentos', 'empresas'));
+        return view('pacientes/create', compact('sexos', 'tipoDocumentos', 'empresas'));
     }
 
     /**
@@ -57,16 +58,16 @@ class PacienteController extends Controller
      */
     public function store(StorePacienteRequest $request)
     {
-        $paciente = request()->except('_token');
+        $paciente=request()->except('_token');
         $save=Paciente::insert($paciente);
-         if ($save){
-             Alert::success('Guardado', 'Registro Exitoso');
-             return back();
+        if ($save){
+            Alert::success('Guardado', 'Registro Exitoso');
+            return back();
 
-         }else{
-             Alert::error('Error', 'Su Registro no fue Exitoso');
-             return back();
-         }
+        }else{
+            Alert::error('Error', 'Su Registro no fue Exitoso');
+            return back();
+        }
     }
     /**
      * Display the specified resource.
@@ -124,12 +125,17 @@ class PacienteController extends Controller
         //     Alert::error('Error', $e);
         //     return redirect('paciente');
         // }
-         if($destroyed==0){
+        if($destroyed==0){
             Alert::success('Eliminado', 'El Registro se ha Destruido');
-             return redirect('paciente');
-         }else{
+             return redirect('pacientes');
+        }else{
              Alert::error('Error', 'Su Registro no fue Eliminado');
-             return redirect('paciente');
-         }
+             return redirect('pacientes');
+        }
+    }
+
+    public function pdf(){
+        $pdf= PDF::loadView('pacientes/pdf');
+        return $pdf->stream();
     }
 }

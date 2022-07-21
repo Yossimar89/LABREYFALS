@@ -16,13 +16,21 @@ use http\Controllers\SexoController;
 |
 */
 
-Route::get('resultados/index', 
-'App\Http\Controllers\ResultadoController@index2')
+//pacientes pdf
+Route::get('pacientes/pdf', 
+'App\Http\Controllers\PacienteController@pdf')
+->name('pdf')->middleware('auth');
+
+Route::get('resultados/pdf', 
+'App\Http\Controllers\ResultadoController@pdf')
 ->name('index')->middleware('auth');
 
-Route::resource('paciente', 'App\Http\Controllers\PacienteController')->middleware('auth');
+Route::get('resultados/qr', 
+'App\Http\Controllers\ResultadoController@qr')
+->name('qr')->middleware('auth');
 
-
+Route::resource('pacientes', 'App\Http\Controllers\PacienteController')->middleware('auth');
+Route::resource('resultados', 'App\Http\Controllers\ResultadoController')->middleware('auth');
 
 Route::get('/', function () {
     return view('auth.login');
@@ -37,56 +45,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
-
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
-
-Route::group(['middleware' => 'auth'], function () {
-	Route::get('table-list', function () {
-		return view('pages.table_list');
-	})->name('table');
-
-	Route::get('typography', function () {
-		return view('pages.typography');
-	})->name('typography');
-
-	Route::get('icons', function () {
-		return view('pages.icons');
-	})->name('icons');
-
-	Route::get('map', function () {
-		return view('pages.map');
-	})->name('map');
-
-	Route::get('notifications', function () {
-		return view('pages.notifications');
-	})->name('notifications');
-
-	Route::get('rtl-support', function () {
-		return view('pages.language');
-	})->name('language');
-
-	Route::get('upgrade', function () {
-		return view('pages.upgrade');
-	})->name('upgrade');
-});
-
-Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
-});
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 

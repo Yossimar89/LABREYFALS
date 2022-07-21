@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Resultado extends Model
 {
+    public function paciente(){
+        return $this->belongsTo('App\Models\Paciente', 'paciente_id', 'id');
+    }
+
     protected $fillable = [
-        'nombre','sexo','cedula'
+        'analisis','resultado',
+        'valor_referencia', 
+        'fecha_validacion', 
+        'paciente_id'
     ];
 }

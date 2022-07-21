@@ -15,10 +15,16 @@ return new class extends Migration
     {
         Schema::create('resultados', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('sexo');
-            $table->bigInteger('cedula');
+            $table->string('Analisis');
+            $table->decimal('resultado');
+            $table->decimal('valor_Referencia');
+            $table->datetime('fecha_validacion');
+            $table->unsignedBigInteger('paciente_id');
             $table->timestamps();
+
+            //Foraneas
+            $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
+
         });
     }
 

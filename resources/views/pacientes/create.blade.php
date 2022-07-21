@@ -2,7 +2,7 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        <form action="{{url('paciente')}}" method="POST">
+        <form action="{{url('pacientes')}}" method="POST">
         @csrf
             <div class="row">
                 <div class="col-md-6">

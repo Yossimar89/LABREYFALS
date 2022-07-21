@@ -27,6 +27,7 @@ return new class extends Migration
             $table->unsignedBigInteger('empresa_id');
             $table->unsignedBigInteger('tipo_documento_id');
 
+
             //Foraneas
             $table->foreign('sexo_id')->references('id')->on('sexos')->onDelete('cascade');
             $table->foreign('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
